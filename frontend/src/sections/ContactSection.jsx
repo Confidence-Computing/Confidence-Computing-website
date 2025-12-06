@@ -164,11 +164,9 @@ export default function ContactSection() {
               </p>
             )}
           </form>
-          <div className="contact-line">
-            <span>Phone: {phone}</span>
-            <span>Email: {email}</span>
-            <span>Web: {website}</span>
-          </div>
+          <p className="helper-text">
+            {email && `We will respond via ${form.preferred.toLowerCase()} unless you let us know otherwise.`}
+          </p>
         </div>
         <figure className="contact-panel__image">
           <img src={contactImg} alt="Calm technician ready to help over the phone" />

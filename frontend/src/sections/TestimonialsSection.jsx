@@ -1,6 +1,6 @@
 import React from 'react';
 import testimonialsData from '../components/testimonialsData';
-import testimonialBg from '/images/testimonial-care.jpg';
+import testimonialBg from '/images/evening-desk.jpg';
 
 export default function TestimonialsSection() {
   return (
