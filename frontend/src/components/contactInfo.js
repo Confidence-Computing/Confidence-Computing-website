@@ -1,4 +1,4 @@
-module.exports = {
+const contactInfo = {
   heading: "Ready for things to feel steady again",
   paragraph:
     "If your computer feels unpredictable or stressful, please reach out. Talk to someone who understands the chaos and has helped others through it.",
@@ -8,3 +8,5 @@ module.exports = {
   primaryCTA: "Call for calm tech help",
   secondaryCTA: "Ask a question by email",
 };
+
+export default contactInfo;
