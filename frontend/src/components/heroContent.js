@@ -1,10 +1,10 @@
 const heroContent = {
-  headline: "When your technology keeps changing, we help you stay steady.",
+  headline: "Come in from the cold. We will help you stay in control.",
   subheading:
-    "Your computer can shift without warning. New popups, new settings, new errors. When it feels unpredictable, we bring clarity, patience, and calm guidance you can count on.",
-  supportLine: "Local, caring tech help when things feel unsettled.",
-  primaryCta: "Talk to someone who understands",
-  secondaryCta: "Tell us what is happening",
+    "Technology shifts without asking. When popups, passwords, and warnings feel relentless, we bring warm, steady guidance so you can relax and get back to what matters.",
+  supportLine: "Warm, human-centered technical care for neighbors.",
+  primaryCta: "Talk to someone",
+  secondaryCta: "Let us reach out to you",
   contactLine: {
     phone: "(603) 560-6630",
     email: "Info@ConfidenceComputing.Help",

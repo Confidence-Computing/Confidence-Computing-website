@@ -11,8 +11,7 @@ const initialForm = {
 };
 
 export default function ContactSection() {
-  const { heading, paragraph, phone, email, website, primaryCTA, secondaryCTA } =
-    contactInfo;
+  const { heading, paragraph, formHelper } = contactInfo;
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState('');
@@ -35,7 +34,7 @@ export default function ContactSection() {
     if (!form.email.trim()) {
       nextErrors.email = 'Please provide an email so we can follow up shortly.';
     } else if (!emailPattern.test(form.email.trim())) {
-      nextErrors.email = 'That email looks off—can you double check it for me?';
+      nextErrors.email = 'That email looks off, can you double check it for me?';
     }
 
     if (!form.inquiry.trim()) {
@@ -57,120 +56,131 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="section section--contact">
-      <div className="section__content contact-panel">
-        <div className="contact-panel__copy">
-          <h2>{heading}</h2>
-          <p className="lead">{paragraph}</p>
-          <form className="contact-form" onSubmit={handleSubmit} noValidate>
-            <div className="form-field">
-              <label htmlFor="name">Name *</label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                value={form.name}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={errors.name ? 'true' : undefined}
-                aria-describedby={errors.name ? 'name-error' : undefined}
-              />
-              {errors.name && (
-                <p className="field-error" id="name-error">
-                  {errors.name}
-                </p>
-              )}
-            </div>
+      <div className="section__content">
+        <div className="contact-shell">
+          <div className="contact-panel">
+            <div className="contact-panel__copy">
+              <h2>{heading}</h2>
+              <p className="lead">{paragraph}</p>
+              <p className="helper-text">{formHelper}</p>
+              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <div className="form-field">
+                  <label htmlFor="name">Name *</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={form.name}
+                    onChange={handleChange}
+                    aria-required="true"
+                    aria-invalid={errors.name ? 'true' : undefined}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
+                  />
+                  {errors.name && (
+                    <p className="field-error" id="name-error">
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
 
-            <div className="form-field">
-              <label htmlFor="email">Email *</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={form.email}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={errors.email ? 'true' : undefined}
-                aria-describedby={errors.email ? 'email-error' : undefined}
-              />
-              {errors.email && (
-                <p className="field-error" id="email-error">
-                  {errors.email}
-                </p>
-              )}
-            </div>
+                <div className="form-field">
+                  <label htmlFor="email">Email *</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    aria-required="true"
+                    aria-invalid={errors.email ? 'true' : undefined}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
+                  />
+                  {errors.email && (
+                    <p className="field-error" id="email-error">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
 
-            <div className="form-field">
-              <label htmlFor="phone">Phone (optional)</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={form.phone}
-                onChange={handleChange}
-              />
-            </div>
+                <div className="form-field">
+                  <label htmlFor="phone">Phone (optional)</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                  />
+                </div>
 
-            <div className="form-field">
-              <label htmlFor="inquiry">What is going on with your computer? *</label>
-              <textarea
-                id="inquiry"
-                name="inquiry"
-                rows="4"
-                placeholder="Let us know in your own words what feels different or what keeps popping up."
-                value={form.inquiry}
-                onChange={handleChange}
-                aria-required="true"
-                aria-invalid={errors.inquiry ? 'true' : undefined}
-                aria-describedby={errors.inquiry ? 'inquiry-error' : undefined}
-              />
-              {errors.inquiry && (
-                <p className="field-error" id="inquiry-error">
-                  {errors.inquiry}
-                </p>
-              )}
-            </div>
+                <div className="form-field">
+                  <label htmlFor="inquiry">What is going on with your computer? *</label>
+                  <textarea
+                    id="inquiry"
+                    name="inquiry"
+                    rows="4"
+                    placeholder="Let us know in your own words what feels different or what keeps popping up."
+                    value={form.inquiry}
+                    onChange={handleChange}
+                    aria-required="true"
+                    aria-invalid={errors.inquiry ? 'true' : undefined}
+                    aria-describedby={errors.inquiry ? 'inquiry-error' : undefined}
+                  />
+                  {errors.inquiry && (
+                    <p className="field-error" id="inquiry-error">
+                      {errors.inquiry}
+                    </p>
+                  )}
+                </div>
 
-            <fieldset className="form-field">
-              <legend>Preferred contact method (optional)</legend>
-              <div className="radio-row">
-                {['Email', 'Phone'].map((option) => (
-                  <label key={option}>
-                    <input
-                      type="radio"
-                      name="preferred"
-                      value={option}
-                      checked={form.preferred === option}
-                      onChange={handleChange}
-                    />
-                    {option}
-                  </label>
-                ))}
-              </div>
+                <fieldset className="form-field">
+                  <legend>Preferred contact method (optional)</legend>
+                  <div className="radio-row">
+                    {['Email', 'Phone'].map((option) => (
+                      <label key={option}>
+                        <input
+                          type="radio"
+                          name="preferred"
+                          value={option}
+                          checked={form.preferred === option}
+                          onChange={handleChange}
+                        />
+                        {option}
+                      </label>
+                    ))}
+                  </div>
+                  <p className="helper-text">
+                    Help us follow up the way that feels easiest. If you prefer email, we will email first;
+                    if you prefer phone, we will call before sending anything.
+                  </p>
+                </fieldset>
+
+                <div className="cta-row">
+                  <button type="submit" className="primary-cta">
+                    Send message
+                  </button>
+                </div>
+                {success && (
+                  <p className="form-success" role="status">
+                    {success}
+                  </p>
+                )}
+              </form>
               <p className="helper-text">
-                Help us follow up the way that feels easiest. If you prefer email, we will email first; if
-                you prefer phone, we will call before sending anything.
+                {`We will respond within one business day ${form.preferred.toLowerCase()} unless you tell us otherwise.`}
               </p>
-            </fieldset>
-
-            <div className="cta-row">
-              <button type="submit" className="primary-cta">
-                Send message
-              </button>
             </div>
-            {success && (
-              <p className="form-success" role="status">
-                {success}
-              </p>
-            )}
-          </form>
-          <p className="helper-text">
-            {email && `We will respond via ${form.preferred.toLowerCase()} unless you let us know otherwise.`}
-          </p>
+            <figure className="contact-panel__image">
+              <img
+                src={contactImg}
+                alt="Calm technician ready to help over the phone"
+                width="1200"
+                height="900"
+                loading="lazy"
+              />
+            </figure>
+          </div>
         </div>
-        <figure className="contact-panel__image">
-          <img src={contactImg} alt="Calm technician ready to help over the phone" />
-        </figure>
       </div>
     </section>
   );

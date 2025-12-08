@@ -1,8 +1,8 @@
 import React from 'react';
 import heroContent from '../components/heroContent';
-import heroImg from '/images/hero-background.jpg';
+import heroImg from '/images/colonial-winter-home.jpg';
 
-const fallbackMeta = "Local, caring tech help when things feel unsettled.";
+const fallbackMeta = "Local, caring technical help when things feel unsettled.";
 
 export default function HeroSection() {
   const { headline, subheading, supportLine, primaryCta, secondaryCta, contactLine } = heroContent;
@@ -13,7 +13,7 @@ export default function HeroSection() {
       id="top"
       className="section section--hero hero-section"
       style={{
-        backgroundImage: `linear-gradient(rgba(8, 8, 12, 0.7), rgba(8, 8, 12, 0.7)), url(${heroImg})`,
+        backgroundImage: `linear-gradient(180deg, rgba(20, 14, 8, 0.55), rgba(239, 175, 69, 0.28)), url(${heroImg})`,
       }}
     >
       <div className="section__content hero-section__content">

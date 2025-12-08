@@ -5,11 +5,11 @@ export default function PromiseSection() {
   const { heading, intro, bullets } = promiseContent;
 
   return (
-    <section id="promise" className="section promise">
-      <div className="section-content">
-        <h2>{heading}</h2>
-        <p className="lead">{intro}</p>
-        <ul className="promise-list">
+    <section id="promise" className="section section--promise">
+      <div className="section__content section__content--narrow">
+        <h2 className="promise__heading">{heading}</h2>
+        <p className="promise__intro">{intro}</p>
+        <ul className="promise__list">
           {bullets.map((item) => (
             <li key={item}>{item}</li>
           ))}

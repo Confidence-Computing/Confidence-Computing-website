@@ -1,12 +1,12 @@
 const contactInfo = {
-  heading: "Ready for things to feel steady again",
+  heading: "Ready to steady your day?",
   paragraph:
-    "If your computer feels unpredictable or stressful, please reach out. Talk to someone who understands the chaos and has helped others through it.",
+    "Share what is happening and we will respond with calm, patient guidance. You can reach us by phone or email, whichever feels easiest.",
   phone: "(603) 560-6630",
   email: "Info@ConfidenceComputing.Help",
   website: "ConfidenceComputing.Help",
-  primaryCTA: "Call for calm tech help",
-  secondaryCTA: "Ask a question by email",
+  formHelper:
+    "Tell us what is happening in your own words. The more detail you share, the better we can prepare.",
 };
 
 export default contactInfo;
