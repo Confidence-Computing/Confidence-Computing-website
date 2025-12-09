@@ -8,6 +8,7 @@ const initialForm = {
   phone: '',
   inquiry: '',
   preferred: 'Email',
+  'bot-field': '',
 };
 
 export default function ContactSection() {
@@ -15,6 +16,7 @@ export default function ContactSection() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState('');
+  const [submitError, setSubmitError] = useState('');
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -23,8 +25,9 @@ export default function ContactSection() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    setSuccess('');
     const nextErrors = {};
 
     if (!form.name.trim()) {
@@ -43,15 +46,32 @@ export default function ContactSection() {
 
     if (Object.keys(nextErrors).length) {
       setErrors(nextErrors);
-      setSuccess('');
+      setSubmitError('');
       return;
     }
 
     setErrors({});
-    setSuccess(
-      `Thanks ${form.name.split(' ')[0] || form.name}, we will reach out soon via ${form.preferred.toLowerCase()}.`
-    );
-    setForm(initialForm);
+    setSubmitError('');
+
+    const firstName = form.name.split(' ')[0] || form.name;
+
+    try {
+      const payload = {
+        'form-name': 'contact',
+        ...form,
+      };
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(payload).toString(),
+      });
+
+      setSuccess(`Thanks ${firstName || 'there'}, we will reach out soon via ${form.preferred.toLowerCase()}.`);
+      setForm(initialForm);
+    } catch (error) {
+      setSubmitError('We could not send your message right now. Please try again in a moment.');
+    }
   }
 
   return (
@@ -63,7 +83,27 @@ export default function ContactSection() {
               <h2>{heading}</h2>
               <p className="lead">{paragraph}</p>
               <p className="helper-text">{formHelper}</p>
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                noValidate
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="visually-hidden" aria-hidden="true">
+                  <label>
+                    Don't fill this out if you are human:
+                    <input
+                      name="bot-field"
+                      value={form['bot-field']}
+                      onChange={handleChange}
+                      tabIndex="-1"
+                    />
+                  </label>
+                </p>
                 <div className="form-field">
                   <label htmlFor="name">Name *</label>
                   <input
@@ -160,6 +200,11 @@ export default function ContactSection() {
                     Send message
                   </button>
                 </div>
+                {submitError && (
+                  <p className="field-error" role="alert">
+                    {submitError}
+                  </p>
+                )}
                 {success && (
                   <p className="form-success" role="status">
                     {success}
