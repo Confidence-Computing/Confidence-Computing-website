@@ -13,7 +13,7 @@ export default function Footer() {
         </a>{' '}
         · Email: <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
       </p>
-      <p>Serving Oxford, Massachusetts and nearby communities.</p>
+      <p>Serving Oxford, Massachusetts and nearly every county in Southern New England within two hours' drive.</p>
       <p>
         © {currentYear} Confidence Computing. All rights reserved. Website by{' '}
         <a
