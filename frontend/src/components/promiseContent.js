@@ -1,5 +1,5 @@
 const promiseContent = {
-  heading: "Calm, steady support while your technology shifts without warning.",
+  heading: "Calm, steady support when your technology shifts without warning",
   intro:
     "We cannot control every update, but we can help you prepare for what is coming and respond with clear, patient actions.",
   bullets: [

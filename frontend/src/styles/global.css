@@ -154,7 +154,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--color-warm-amber), var(--color-ember-gold));
+  background: var(--color-warm-amber);
   color: #fff;
   box-shadow: 0 12px 24px rgba(157, 111, 35, 0.3);
   padding: 0.55rem 1.1rem;
@@ -330,7 +330,7 @@
 }
 
 .hero__lead {
-  color: #f3f3f6;
+  color: #e8ae4f;
 }
 
 .hero-section h1 {
@@ -406,7 +406,7 @@
 }
 
 .lead {
-  color: var(--color-charcoal);
+  color: #f3f3f6;
   font-size: 1.05rem;
 }
 
@@ -889,7 +889,7 @@
   animation: slideFade 0.7s ease;
   justify-content: center;
   height: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .testimonial-card__summary {
