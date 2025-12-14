@@ -5,7 +5,7 @@ import heroImg from '/images/colonial-winter-home.jpg';
 const fallbackMeta = "Local, caring technical help when things feel unsettled.";
 
 export default function HeroSection() {
-  const { headline, subheading, supportLine, primaryCta, secondaryCta, contactLine } = heroContent;
+  const { headline1, headline2, subheading, supportLine, primaryCta, secondaryCta, contactLine } = heroContent;
   const telHref = `tel:${contactLine.phone.replace(/[^0-9+]/g, '')}`;
 
   return (
