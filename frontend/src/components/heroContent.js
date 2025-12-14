@@ -1,6 +1,6 @@
 const heroContent = {
-  h1: "Come in from the cold.",
-  h2: "We will help you stay in control.",
+  header: "Come in from the cold.",
+  header: "We will help you stay in control.",
   subheading:
     "Technology shifts without asking. When popups, passwords, and warnings feel relentless, we bring warm, steady guidance so you can relax and get back to what matters.",
   supportLine: "Warm, human-centered technical care for neighbors.",
