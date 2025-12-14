@@ -212,7 +212,7 @@ export default function ContactSection() {
                 )}
               </form>
               <p className="helper-text">
-                {`We will respond within one business day ${form.preferred.toLowerCase()} unless you tell us otherwise.`}
+                {`We will respond within one business day by ${form.preferred.toLowerCase()} unless you tell us otherwise.`}
               </p>
             </div>
             <figure className="contact-panel__image">
