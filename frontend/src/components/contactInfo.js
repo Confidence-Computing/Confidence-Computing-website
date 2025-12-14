@@ -6,7 +6,7 @@ const contactInfo = {
   email: "Info@ConfidenceComputing.Help",
   website: "ConfidenceComputing.Help",
   formHelper:
-    "Tell us what is happening in your own words. The more detail you share, the better we can prepare.",
+    "Tell us what is happening in your own words. The more detail you share, the better we can prepare. </br>Required fields below are marked with an asterisk. *",
 };
 
 export default contactInfo;
