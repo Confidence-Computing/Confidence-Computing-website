@@ -406,7 +406,7 @@
 }
 
 .lead {
-  color: var(--color-soft-gray);
+  color: var(--color-charcoal);
   font-size: 1.05rem;
 }
 
@@ -593,7 +593,7 @@
 
 .helper-text {
   font-size: 0.9rem;
-  color: var(--color-muted);
+  color: var(--color-charcoal);
   margin-top: 0.25rem;
 }
 

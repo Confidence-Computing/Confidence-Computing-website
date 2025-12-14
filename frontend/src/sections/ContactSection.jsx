@@ -31,7 +31,7 @@ export default function ContactSection() {
     const nextErrors = {};
 
     if (!form.name.trim()) {
-      nextErrors.name = 'Please share your name so we know who we are talking with.';
+      nextErrors.name = 'Please share your name so we know who we are supporting.';
     }
 
     if (!form.email.trim()) {
