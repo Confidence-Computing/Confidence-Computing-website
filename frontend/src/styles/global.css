@@ -406,7 +406,7 @@
 }
 
 .lead {
-  color: var(--color-charcoal);
+  color: #f3f3f6;
   font-size: 1.05rem;
 }
 
@@ -889,7 +889,7 @@
   animation: slideFade 0.7s ease;
   justify-content: center;
   height: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .testimonial-card__summary {
