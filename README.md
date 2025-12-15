@@ -22,6 +22,9 @@ npm run preview
 - Standard flow: pull latest, create a feature branch, open PR, merge to master.
 - Commits trigger Netlify deploys once Netlify is connected to this repo (see below).
 
+### Content updates (non-technical)
+Follow `docs/content-update-workflow.md` to make your edits first, then publish once (saves Netlify build minutes).
+
 ## Netlify deployment
 1) In Netlify, create a new site from Git and select this repository.
 2) Base directory: `frontend`

@@ -61,11 +61,15 @@ export default function ContactSection() {
         ...form,
       };
 
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(payload).toString(),
       });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed with status ${response.status}.`);
+      }
 
       setSuccess(`Thanks ${firstName || 'there'}, we will reach out soon via ${form.preferred.toLowerCase()}.`);
       setForm(initialForm);
