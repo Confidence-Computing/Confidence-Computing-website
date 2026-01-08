@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import testimonialsData from '../components/testimonialsData';
 import testimonialImg from '/images/colonial-porch-lantern.jpg';
 
-const ROTATE_MS = 6000;
+const ROTATE_MS = 18000;
 
 export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
